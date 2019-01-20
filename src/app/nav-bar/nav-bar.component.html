@@ -1,0 +1,6 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="nav-link" routerLink="/home" routerLinkActive="active"> Home </a>
+  <a class="nav-link" routerLink="/search" routerLinkActive="active"> Search </a>
+  <a class="nav-link" routerLink="/cart" routerLinkActive="active"> Cart <span class="count" *ngIf="booksModel.cart && booksModel.cart.length > 0">{{booksModel.cart.length}}</span> </a>
+  <a class="nav-link" routerLink="/orders" routerLinkActive="active"> Your Orders </a>
+</nav>

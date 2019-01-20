@@ -1,0 +1,26 @@
+<div>
+
+  <section class="jumbotron">
+    <div *ngIf="booksModel.cart && booksModel.cart.length > 0">
+      <ul>
+        <li *ngFor="let book of booksModel.cart" class="card">
+          <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image"> -->
+          <div class="card-body">
+            <h4 class="card-title" [routerLink]="['/book', book.title]">{{book.title}}</h4>
+            <p class="card-text">{{book.description}}</p>
+            <p class="card-text">{{book.author}}</p>
+            <span class="card-text">Price: {{book.price}}rs</span><a class="btn btn-primary" style="float:right; color: white" (click)="removeFromCart(book)">Remove</a>
+          </div>
+        </li>
+      </ul>
+      <div style="margin: 10px; padding: 10px;">
+        <span>Total: {{totalAmount}}rs </span> 
+        <a class="btn btn-primary" style="margin-left: 15px; color: white" (click)="orderBooks()">Order</a>
+      </div>
+    </div>
+    <div *ngIf="booksModel.cart && booksModel.cart.length === 0">
+      Your cart is empty!!
+    </div>
+  </section>
+
+</div>
