@@ -9,7 +9,7 @@
   <section class="jumbotron">
     <ul>
       <li *ngFor="let book of books | bookFilter: searchTerm" class="card">
-        <!-- <img class="card-img-top" src="img_avatar1.png" alt="Card image"> -->
+        <img class="card-img-top" src="{{book.thumbnailUrl}}" alt="Card image">
         <div class="card-body">
           <h4 class="card-title" [routerLink]="['/book', book.title]">{{book.title}}</h4>
           <p class="card-text">{{book.description}}</p>

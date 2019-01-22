@@ -2,4 +2,10 @@
 <br>
 <section class="jumbotron">
   <h3>Welcome to Library</h3>
+  <br>
+  <br>
+  <div>
+    Select a File to upload: &nbsp;<input type="file" (change)="fileChange($event)" accept=".pdf,.doc,.docx"><br><br>
+    <button type="button" class="btn btn-primary" value="Upload" (click)="upload()">Upload</button>
+  </div>
 </section>

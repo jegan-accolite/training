@@ -1,0 +1,47 @@
+<br>
+<div *ngIf="showErrorMessage" class="alert alert-danger alert-dismissible fade show">
+  <button type="button" class="close" data-dismiss="alert" (click)="reset()">&times;</button>
+  <strong>{{message}}</strong>
+</div>
+<div *ngIf="showSuccessMessage" class="alert alert-success alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert" (click)="reset()">&times;</button>
+    <strong>{{message}}</strong>
+  </div>
+<br>
+<section class="jumbotron">
+  <div *ngIf="toggleLogin">
+    <h3>Login</h3>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" [(ngModel)]="username">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" [(ngModel)]="password">
+    </div>
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox"> Remember me
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
+    <a class="toggleForm" (click)="toggleLogin=false; reset()">Create Account</a>
+  </div>
+  <div *ngIf="!toggleLogin">
+    <h3>Create Account</h3>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" [(ngModel)]="username">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Confirm Password:</label>
+      <input type="password" class="form-control" [(ngModel)]="confirmPassword">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="signup()">Submit</button>
+    <a class="toggleForm" (click)="toggleLogin=true; reset()">Login</a>
+  </div>
+</section>

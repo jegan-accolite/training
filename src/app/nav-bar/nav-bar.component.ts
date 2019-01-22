@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { BooksModel } from '../models/books';
 
 @Component({
@@ -6,15 +6,34 @@ import { BooksModel } from '../models/books';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements AfterContentChecked {
 
   cartCount: number = 0;
+  loggedInUser: string = '';
 
-  constructor(public booksModel: BooksModel) { }
-
-  ngOnInit() {
+  constructor(public booksModel: BooksModel) { 
     if(this.booksModel && this.booksModel.cart){
       this.cartCount = this.booksModel.cart.length;
+    }
+  }
+
+  // ngOnInit() {
+  //   if(this.booksModel && this.booksModel.cart){
+  //     this.cartCount = this.booksModel.cart.length;
+  //   }
+  // }
+
+  ngAfterContentChecked() {
+    if(sessionStorage && sessionStorage.getItem("loggedInUser") != null) {
+      this.loggedInUser = sessionStorage.getItem("loggedInUser");
+    }
+  }
+
+
+  logout() {
+    if(sessionStorage) {
+      this.loggedInUser = '';
+      sessionStorage.removeItem("loggedInUser");
     }
   }
 

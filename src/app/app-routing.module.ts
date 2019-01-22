@@ -5,13 +5,16 @@ import { SearchComponent } from './search/search.component';
 import { CartComponent } from './cart/cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { BookComponent } from './book/book.component';
+import { LoginComponent } from './login/login.component';
+import { RouteGuardService } from './providers/route-guard.service';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'book/:title', component: BookComponent },
+  { path: 'home', component: HomeComponent, canActivate: [RouteGuardService] },
+  { path: 'search', component: SearchComponent, canActivate: [RouteGuardService]  },
+  { path: 'cart', component: CartComponent, canActivate: [RouteGuardService]  },
+  { path: 'orders', component: OrdersComponent, canActivate: [RouteGuardService]  },
+  { path: 'book/:title', component: BookComponent, canActivate: [RouteGuardService]  },
+  { path: 'login', component: LoginComponent },
   
   { path: '',
     redirectTo: '/home',
