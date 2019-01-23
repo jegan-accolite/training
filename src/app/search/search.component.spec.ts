@@ -5,6 +5,7 @@ import { BooksModel } from '../models/books';
 import { FormsModule } from '@angular/forms';
 import { BookFilterPipe } from '../pipes/book-filter.pipe';
 import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -12,7 +13,7 @@ describe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterModule, FormsModule ],
+      imports: [ RouterModule, FormsModule, RouterTestingModule ],
       declarations: [ SearchComponent, BookFilterPipe ],
       providers: [BooksModel]
     })
