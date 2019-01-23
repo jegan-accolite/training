@@ -31,14 +31,14 @@ export class HomeComponent implements OnInit {
       if (response && response.length > 0) {
         this.booksModel.booksList = response;
       }
-    })
+    });
   }
 
   fileChange($event: any) {
     // console.log($event);
     if ($event.target.files && $event.target.files[0]) {
       this.myFile = $event.target.files[0];
-    };
+    }
   }
 
   upload() {
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
       this.fileUploaderService.uploadFile(this.myFile).subscribe((event) => {
         console.log(event);
       },
-        (error) => { console.log('file upload error') })
+        (error) => { console.log('file upload error'); });
     }
   }
 

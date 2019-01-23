@@ -8,11 +8,11 @@ import { BooksModel } from '../models/books';
 })
 export class NavBarComponent implements AfterContentChecked {
 
-  cartCount: number = 0;
-  loggedInUser: string = '';
+  cartCount = 0;
+  loggedInUser = '';
 
-  constructor(public booksModel: BooksModel) { 
-    if(this.booksModel && this.booksModel.cart){
+  constructor(public booksModel: BooksModel) {
+    if (this.booksModel && this.booksModel.cart) {
       this.cartCount = this.booksModel.cart.length;
     }
   }
@@ -24,16 +24,16 @@ export class NavBarComponent implements AfterContentChecked {
   // }
 
   ngAfterContentChecked() {
-    if(sessionStorage && sessionStorage.getItem("loggedInUser") != null) {
-      this.loggedInUser = sessionStorage.getItem("loggedInUser");
+    if (sessionStorage && sessionStorage.getItem('loggedInUser') != null) {
+      this.loggedInUser = sessionStorage.getItem('loggedInUser');
     }
   }
 
 
   logout() {
-    if(sessionStorage) {
+    if (sessionStorage) {
       this.loggedInUser = '';
-      sessionStorage.removeItem("loggedInUser");
+      sessionStorage.removeItem('loggedInUser');
     }
   }
 

@@ -5,12 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class BookFilterPipe implements PipeTransform {
 
-  transform(books:any, searchTerm:string): any {
-    if(!books || !searchTerm) {
+  transform(books: any, searchTerm: string): any {
+    if (!books || !searchTerm) {
       return books;
     }
 
-    return books.filter(book => 
+    return books.filter(book =>
       book.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
   }
 

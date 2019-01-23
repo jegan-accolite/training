@@ -7,7 +7,7 @@ import { BooksModel } from '../models/books';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-  
+
   constructor(public booksModel: BooksModel) { }
 
   ngOnInit() {

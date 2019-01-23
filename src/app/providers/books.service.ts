@@ -9,13 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class BooksService {
 
-  constructor(private http: HttpClient,public booksModel: BooksModel) { }
+  constructor(private http: HttpClient, public booksModel: BooksModel) { }
 
   // getBooks(): Observable<any> {
   //   return this.http.get('https://jsonplaceholder.typicode.com/photos');
   // }
 
-  orderBooks(books:any): Observable<any> {
+  orderBooks(books: any): Observable<any> {
     return this.http.post('https://jsonplaceholder.typicode.com/posts', books);
   }
 

@@ -8,7 +8,7 @@ import { BooksService } from '../providers/books.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  totalAmount: number = 0;
+  totalAmount = 0;
   constructor(public booksModel: BooksModel, private booksService: BooksService) { }
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class CartComponent implements OnInit {
     this.totalAmount = 0;
     this.booksModel.cart && this.booksModel.cart.forEach((book) => {
       this.totalAmount += book.price;
-    })
+    });
   }
 
 }

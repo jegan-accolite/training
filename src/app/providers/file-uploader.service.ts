@@ -10,10 +10,10 @@ export class FileUploaderService {
   constructor(private http: HttpClient) { }
 
   uploadFile(file: File): Observable<any> {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('upload', file, file.name);
 
-    let params = new HttpParams();
+    const params = new HttpParams();
 
     const options = {
       params: params,

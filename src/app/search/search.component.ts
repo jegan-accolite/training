@@ -7,7 +7,7 @@ import { BooksModel } from '../models/books';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  searchTerm: string = '';
+  searchTerm = '';
   books: any = [];
 
   constructor(public booksModel: BooksModel) { }
@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   }
 
   addToCart(book: any) {
-    if(book) {
+    if (book) {
       this.booksModel.cart.push(book);
     }
   }

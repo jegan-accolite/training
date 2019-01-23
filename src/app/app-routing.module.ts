@@ -15,12 +15,12 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent, canActivate: [RouteGuardService]  },
   { path: 'book/:title', component: BookComponent, canActivate: [RouteGuardService]  },
   { path: 'login', component: LoginComponent },
-  
+
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
