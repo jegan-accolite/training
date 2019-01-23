@@ -15,15 +15,21 @@ export class HomeComponent implements OnInit {
   constructor(private booksService: BooksService, public booksModel: BooksModel, private fileUploaderService: FileUploaderService) { }
 
   ngOnInit() {
-    this.booksService.getBooks().subscribe((response) => {
-      console.log(response);
+    // this.booksService.getBooks().subscribe((response) => {
+    //   console.log(response);
+    //   if (response && response.length > 0) {
+    //     this.booksModel.booksList = response.slice(0, 100);
+    //     this.booksModel.booksList.forEach((book) => {
+    //       book['description'] = 'Book abt ' + book.title;
+    //       book['author'] = 'Martin';
+    //       book['price'] = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+    //     })
+    //   }
+    // });
+
+    this.booksService.getBooks().subscribe((response: any) => {
       if (response && response.length > 0) {
-        this.booksModel.booksList = response.slice(0, 100);
-        this.booksModel.booksList.forEach((book) => {
-          book['description'] = 'Book abt ' + book.title;
-          book['author'] = 'Martin';
-          book['price'] = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
-        })
+        this.booksModel.booksList = response;
       }
     })
   }

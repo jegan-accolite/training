@@ -29,7 +29,7 @@ export class BooksModel {
         {
             id: 4,
             title: 'Game of Thromes',
-            description: 'Book abt kings and familr',
+            description: 'Book abt kings and family',
             author: 'George RR Martin',
             price: 500
         },
