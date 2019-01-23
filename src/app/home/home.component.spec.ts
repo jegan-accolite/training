@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { FileUploaderService } from '../providers/file-uploader.service';
+import { BooksModel } from '../models/books';
+import { BooksService } from '../providers/books.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +12,9 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [HttpClientModule],
+      declarations: [ HomeComponent ],
+      providers: [BooksService, BooksModel, FileUploaderService]
     })
     .compileComponents();
   }));

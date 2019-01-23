@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
+import { BooksModel } from '../models/books';
+import { FormsModule } from '@angular/forms';
+import { BookFilterPipe } from '../pipes/book-filter.pipe';
+import { RouterModule } from '@angular/router';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -8,7 +12,9 @@ describe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
+      imports: [ RouterModule, FormsModule ],
+      declarations: [ SearchComponent, BookFilterPipe ],
+      providers: [BooksModel]
     })
     .compileComponents();
   }));

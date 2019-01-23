@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,6 +14,8 @@ import { BookFilterPipe } from './pipes/book-filter.pipe';
 import { BookComponent } from './book/book.component';
 import { BooksModel } from './models/books';
 import { LoginComponent } from './login/login.component';
+import { BooksService } from './providers/books.service';
+import { FileUploaderService } from './providers/file-uploader.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ BooksModel ],
+  exports: [ BookFilterPipe ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  providers: [ BooksModel, BooksService, FileUploaderService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
